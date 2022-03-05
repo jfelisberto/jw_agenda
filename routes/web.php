@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Address;
+use App\Http\Controllers\Contact;
+use App\Http\Controllers\Home;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +17,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Home::class, 'index'])->name('dashboard');

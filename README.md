@@ -12,7 +12,7 @@ No seu arquivo .env informe em "DB_USERNAME" o seu usuário do banco de dados e 
 2 - Crie o Banco de dados jw_agenda
 
 3 - No diretório da aplicação rode o comando:
-    <code>php artisan migrate</code>
-    Para popular as tabelas no banco
+    <code>php artisan migrate</code>,
+    para popular as tabelas no banco
 
 4 - Depois é só acessar a aplicação através do seu navegador
