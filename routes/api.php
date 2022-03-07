@@ -26,7 +26,7 @@ Route::prefix('contact')->group(function() {
     Route::post('/', [Contact::class, 'store']);
     Route::get('/{id}', [Contact::class, 'show']);
     Route::get('/{id}/edit', [Contact::class, 'edit']);
-    Route::post('/{id}', [Contact::class, 'update']);
+    Route::put('/{id}', [Contact::class, 'update']);
     Route::delete('/{id}', [Contact::class, 'destroy']);
 });
 
@@ -35,6 +35,6 @@ Route::prefix('address')->group(function() {
     Route::post('/', [Address::class, 'store']);
     Route::get('/{id}', [Address::class, 'show']);
     Route::get('/{id}/edit', [Address::class, 'edit']);
-    Route::post('/{id}', [Address::class, 'update']);
+    Route::put('/{id}', [Address::class, 'update']);
     Route::delete('/{id}', [Address::class, 'destroy']);
 });

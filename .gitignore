@@ -1,6 +1,14 @@
 /node_modules
 /public/hot
+/public/css/bootstrap.css
+/public/css/fontawesome.css
+/public/css/main.css
+/public/js/datatables.js
+/public/js/main.js
+/public/js/plugins.js
+/public/js/vue.js
 /public/storage
+/resources/*/*.min.*
 /storage/*.key
 /vendor
 .env

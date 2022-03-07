@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\Address;
-use App\Http\Controllers\Contact;
-use App\Http\Controllers\Home;
-
+use App\Http\Controllers\App;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +13,5 @@ use App\Http\Controllers\Home;
 |
 */
 
-Route::get('/', [Home::class, 'index'])->name('dashboard');
+Route::get('/', [App::class, 'index'])->name('dashboard');
+#Route::get('/{any}', [App::class, 'index'])->where('any', '.*');
