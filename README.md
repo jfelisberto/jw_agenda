@@ -3,7 +3,7 @@ Agenda de contatos API RES<br />
 Esse programa foi criado para você cadastrar seus contatos<br /><br />
 Ele conta com:<br />
 - Busca por CEP para localizar endereços<br />
-- Busca por CNPJ para buscar o nome da empresa e preenchero o Endereço comercial<br />
+- Busca por CNPJ para buscar o nome da empresa e preencher o Endereço comercial<br />
 <br />
 Para uma fácil utilização e testes dos recursos deste software, não foi implementado uma camada de autenticação de acesso e nem nas requisições a API<br />
 

@@ -9,6 +9,7 @@
 /public/js/vue.js
 /public/storage
 /resources/*/*.min.*
+/resources/js/axios.js
 /storage/*.key
 /vendor
 .env
