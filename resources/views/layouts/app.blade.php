@@ -31,7 +31,7 @@
 
         @yield('content')
 
-        {{-- @include('components.form_ajax') --}}
+        @include('components.form_ajax')
 
         <footer class="footer fixed-bottom border-top ms-sm-auto bg-light">
             <div class="container-fluid">
@@ -46,9 +46,9 @@
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('plugins/datatables_bootstrap/datatables.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('js/fontawesome.min.js') }}"></script>
 
-        <script src="{{ asset('plugins/datatables_bootstrap/datatables.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/select2/js/select2.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/bootstrap_notify/bootstrap-notify.min.js') }}" type="text/javascript"></script>
         <script src="{{ asset('plugins/sweetalert/js/sweetalert2.min.js') }}" type="text/javascript"></script>
@@ -61,6 +61,8 @@
             }
         });
         var basePath = '{{ asset('') }}';
+
+        var urlBase = '{{ asset('') }}'
 
         var table = '';
         $(document).ready(function() {

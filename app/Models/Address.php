@@ -21,6 +21,8 @@ class Address extends Model
         'contact_id',
 		'user_id',
         'type',
+        'ibge',
+        'siafi',
         'zipcode',
         'public_place',
         'address',

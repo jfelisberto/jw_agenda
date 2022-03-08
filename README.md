@@ -38,6 +38,5 @@ Vamos aos primeiros passos da configuração.
     <code>php artisan serve</code><br />
     Para criar o ambiente virtual para acessar a aplicação atravez da url:<br />
     <a href="http://localhost:8000">http://localhost:8000/</a><br />
-    Se chegou aqui pode pular o item 9<br />
 <br />
 9 - Depois é só acessar a aplicação através do seu navegador<br />

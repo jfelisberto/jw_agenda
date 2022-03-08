@@ -65,25 +65,25 @@ class Contact extends Controller
         try {
             if (empty(trim($request->email))) {
                 return Response::json(['message' => 'E-mail é obrigatório para o cadastrado',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
             }
             $email = Societe::where('email', '=', $request->email)->select('id')->first();
             if (isSet($email->id)) {
                 if ($email->id) {
                     return Response::json(['message' => 'E-mail já cadastrado, tente outro',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
                 }
             }
 
             if (empty(trim($request->mobile))) {
                 return Response::json(['message' => 'Celular é obrigatório para o cadastrado',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
             }
             $mobile = Societe::where('mobile', '=', $request->mobile)->select('id')->first();
             if (isSet($mobile->id)) {
                 if ($mobile->id) {
                     return Response::json(['message' => 'Celular já cadastrado, tente outro',
-                    'status' => 'warning', 'data' => $mobile], 200);
+                    'status' => 'warning'], 200);
                 }
             }
 
@@ -95,6 +95,8 @@ class Contact extends Controller
                         $address = [
                             'contact_id'    => $data->id,
                             'type'          => $value['type'],
+                            'ibge'          => $value['ibge'],
+                            'siafi'         => $value['siafi'],
                             'zipcode'       => $value['zipcode'],
                             'public_place'  => $value['public_place'],
                             'address'       => $value['address'],
@@ -208,25 +210,25 @@ class Contact extends Controller
         try {
             if (empty(trim($request->email))) {
                 return Response::json(['message' => 'E-mail é obrigatório para o cadastrado',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
             }
             $email = Societe::where('email', '=', $request->email)->select('id')->first();
             if (isSet($email->id)) {
                 if ($email->id <> $id) {
                     return Response::json(['message' => 'E-mail já cadastrado, tente outro',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
                 }
             }
 
             if (empty(trim($request->mobile))) {
                 return Response::json(['message' => 'Celular é obrigatório para o cadastrado',
-                    'status' => 'warning', 'data' => $email], 200);
+                    'status' => 'warning'], 200);
             }
             $mobile = Societe::where('mobile', '=', $request->mobile)->select('id')->first();
             if (isSet($mobile->id)) {
                 if ($mobile->id <> $id) {
                     return Response::json(['message' => 'Celular já cadastrado, tente outro',
-                    'status' => 'warning', 'data' => $mobile], 200);
+                    'status' => 'warning'], 200);
                 }
             }
 
@@ -239,6 +241,8 @@ class Contact extends Controller
                         $address = [
                             'contact_id'    => $value['contact_id'],
                             'type'          => $value['type'],
+                            'ibge'          => $value['ibge'],
+                            'siafi'         => $value['siafi'],
                             'zipcode'       => $value['zipcode'],
                             'public_place'  => $value['public_place'],
                             'address'       => $value['address'],
@@ -262,6 +266,8 @@ class Contact extends Controller
                             $address = [
                                 'contact_id'    => $id,
                                 'type'          => $value['type'],
+                                'ibge'          => $value['ibge'],
+                                'siafi'         => $value['siafi'],
                                 'zipcode'       => $value['zipcode'],
                                 'public_place'  => $value['public_place'],
                                 'address'       => $value['address'],

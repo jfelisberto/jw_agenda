@@ -20,6 +20,8 @@ class CreateAddressesTable extends Migration
             $table->bigInteger('user_id')->unsigned()->nullable()->default(NULL);
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('type', 20)->nullable()->default(NULL);
+            $table->string('ibge', 30)->nullable()->default(NULL);
+            $table->string('siafi', 30)->nullable()->default(NULL);
             $table->string('zipcode', 20)->nullable()->default(NULL);
             $table->string('public_place', 155)->nullable()->default(NULL);
             $table->string('address', 255)->nullable()->default(NULL);

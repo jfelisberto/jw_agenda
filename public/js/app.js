@@ -5630,6 +5630,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     var _ref;
@@ -5646,6 +5674,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       adrctt_address_id: '',
       adrctt_contact_id: '',
       adrctt_type: 'contact',
+      adrctt_ibge: '',
+      adrctt_siafi: '',
       adrctt_zipcode: '',
       adrctt_public_place: '',
       adrctt_address: '',
@@ -5657,7 +5687,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       adrctt_country: 'Brasil',
       adrcmp_contact_id: '',
       adrcmp_address_id: ''
-    }, _defineProperty(_ref, "adrcmp_contact_id", ''), _defineProperty(_ref, "adrcmp_type", 'company'), _defineProperty(_ref, "adrcmp_zipcode", ''), _defineProperty(_ref, "adrcmp_public_place", ''), _defineProperty(_ref, "adrcmp_address", ''), _defineProperty(_ref, "adrcmp_number", ''), _defineProperty(_ref, "adrcmp_complement", ''), _defineProperty(_ref, "adrcmp_district", ''), _defineProperty(_ref, "adrcmp_city", ''), _defineProperty(_ref, "adrcmp_state", ''), _defineProperty(_ref, "adrcmp_country", 'Brasil'), _ref;
+    }, _defineProperty(_ref, "adrcmp_contact_id", ''), _defineProperty(_ref, "adrcmp_type", 'company'), _defineProperty(_ref, "adrcmp_ibge", ''), _defineProperty(_ref, "adrcmp_siafi", ''), _defineProperty(_ref, "adrcmp_zipcode", ''), _defineProperty(_ref, "adrcmp_public_place", ''), _defineProperty(_ref, "adrcmp_address", ''), _defineProperty(_ref, "adrcmp_number", ''), _defineProperty(_ref, "adrcmp_complement", ''), _defineProperty(_ref, "adrcmp_district", ''), _defineProperty(_ref, "adrcmp_city", ''), _defineProperty(_ref, "adrcmp_state", ''), _defineProperty(_ref, "adrcmp_country", 'Brasil'), _ref;
   },
   create: function create() {
     console.log('Component Start Create.');
@@ -5680,7 +5710,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.company = '';
       this.adrctt_address_id = '';
       this.adrctt_contact_id = '';
-      this.adrctt_type = 'contact', this.adrctt_zipcode = '';
+      this.adrctt_type = 'contact', this.adrctt_ibge = '';
+      this.adrctt_siafi = '';
+      this.adrctt_zipcode = '';
       this.adrctt_public_place = '';
       this.adrctt_address = '';
       this.adrctt_number = '';
@@ -5691,7 +5723,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.adrctt_country = 'Brasil';
       this.adrcmp_address_id = '';
       this.adrcmp_contact_id = '';
-      this.adrcmp_type = 'company', this.adrcmp_zipcode = '';
+      this.adrcmp_type = 'company', this.adrcmp_ibge = '';
+      this.adrcmp_siafi = '';
+      this.adrcmp_zipcode = '';
       this.adrcmp_public_place = '';
       this.adrcmp_address = '';
       this.adrcmp_number = '';
@@ -5714,6 +5748,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           contact_id: '',
           user_id: '',
           type: 'contact',
+          ibge: this.adrctt_ibge,
+          siafi: this.adrctt_siafi,
           zipcode: this.adrctt_zipcode,
           public_place: this.adrctt_public_place,
           address: this.adrctt_address,
@@ -5727,6 +5763,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           contact_id: '',
           user_id: '',
           type: 'company',
+          ibge: this.adrcmp_ibge,
+          siafi: this.adrcmp_siafi,
           zipcode: this.adrcmp_zipcode,
           public_place: this.adrcmp_public_place,
           address: this.adrcmp_address,
@@ -5768,6 +5806,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             _this3.adrctt_address_id = response.data.data.address[0].id;
             _this3.adrctt_contact_id = response.data.data.address[0].contact_id;
             _this3.adrctt_type = response.data.data.address[0].type;
+            _this3.adrctt_ibge = response.data.data.address[0].ibge;
+            _this3.adrctt_siafi = response.data.data.address[0].siafi;
             _this3.adrctt_zipcode = response.data.data.address[0].zipcode;
             _this3.adrctt_address = response.data.data.address[0].address;
             _this3.adrctt_public_place = response.data.data.address[0].public_place;
@@ -5780,7 +5820,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           } else {
             _this3.adrctt_address_id = '';
             _this3.adrctt_contact_id = '';
-            _this3.adrctt_type = 'contact', _this3.adrctt_zipcode = '';
+            _this3.adrctt_type = 'contact', _this3.adrctt_ibge = '';
+            _this3.adrctt_siafi = '';
+            _this3.adrctt_zipcode = '';
             _this3.adrctt_public_place = '';
             _this3.adrctt_address = '';
             _this3.adrctt_number = '';
@@ -5795,6 +5837,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             _this3.adrcmp_address_id = response.data.data.address[1].id;
             _this3.adrcmp_contact_id = response.data.data.address[1].contact_id;
             _this3.adrcmp_type = response.data.data.address[1].type;
+            _this3.adrcmp_ibge = response.data.data.address[1].ibge;
+            _this3.adrcmp_siafi = response.data.data.address[1].siafi;
             _this3.adrcmp_zipcode = response.data.data.address[1].zipcode;
             _this3.adrcmp_public_place = response.data.data.address[1].public_place;
             _this3.adrcmp_address = response.data.data.address[1].address;
@@ -5807,7 +5851,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           } else {
             _this3.adrcmp_address_id = '';
             _this3.adrcmp_contact_id = '';
-            _this3.adrcmp_type = 'company', _this3.adrcmp_zipcode = '';
+            _this3.adrcmp_type = 'company', _this3.adrcmp_ibge = '';
+            _this3.adrcmp_siafi = '';
+            _this3.adrcmp_zipcode = '';
             _this3.adrcmp_public_place = '';
             _this3.adrcmp_address = '';
             _this3.adrcmp_number = '';
@@ -6494,8 +6540,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require
 
 
 
+ //Vue.component('schedule-component', require('./components/ScheduleComponent.vue').default);
 
-vue__WEBPACK_IMPORTED_MODULE_2__["default"].component('schedule-component', (__webpack_require__(/*! ./components/ScheduleComponent.vue */ "./resources/js/components/ScheduleComponent.vue")["default"]));
 vue__WEBPACK_IMPORTED_MODULE_2__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -29388,6 +29434,8 @@ var render = function () {
                   [
                     _vm._m(2),
                     _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [_vm._v(" ")]),
+                    _vm._v(" "),
                     _c(
                       "div",
                       {
@@ -29409,9 +29457,14 @@ var render = function () {
                           [
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "name" } }, [
-                                  _vm._v("Nome"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "name" },
+                                  },
+                                  [_vm._v("Nome")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29441,9 +29494,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "email" } }, [
-                                  _vm._v("Email"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "email" },
+                                  },
+                                  [_vm._v("Email")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29475,9 +29533,14 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "mobile" } }, [
-                                  _vm._v("Celular"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "mobile" },
+                                  },
+                                  [_vm._v("Celular")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29507,9 +29570,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "phone" } }, [
-                                  _vm._v("Telefone"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "phone" },
+                                  },
+                                  [_vm._v("Telefone")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29541,41 +29609,55 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "cnpj" } }, [
-                                  _vm._v("CNPJ"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_cnpj" },
+                                  },
+                                  [_vm._v("CNPJ")]
+                                ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.cnpj,
-                                      expression: "cnpj",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.cnpj,
+                                        expression: "cnpj",
+                                      },
+                                    ],
+                                    staticClass: "form-control cnpjMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "adrcmp_cnpj",
+                                      name: "cnpj",
                                     },
-                                  ],
-                                  staticClass: "form-control cpfcnpjMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "cnpj",
-                                    name: "cnpj",
-                                  },
-                                  domProps: { value: _vm.cnpj },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.cnpj = $event.target.value
+                                    domProps: { value: _vm.cnpj },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.cnpj = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(3),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "company" } }, [
-                                  _vm._v("Empresa"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_company" },
+                                  },
+                                  [_vm._v("Empresa")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29589,7 +29671,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    id: "company",
+                                    id: "adrcmp_company",
                                     name: "company",
                                   },
                                   domProps: { value: _vm.company },
@@ -29647,41 +29729,101 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_zipcode" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_zipcode" },
+                                  },
                                   [_vm._v("CEP")]
                                 ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.adrctt_zipcode,
-                                      expression: "adrctt_zipcode",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_ibge,
+                                        expression: "adrctt_ibge",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "adrctt_ibge",
+                                      name: "adrctt_ibge",
                                     },
-                                  ],
-                                  staticClass: "form-control cepMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "adrctt_zipcode",
-                                    name: "adrctt_zipcode",
-                                  },
-                                  domProps: { value: _vm.adrctt_zipcode },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.adrctt_zipcode = $event.target.value
+                                    domProps: { value: _vm.adrctt_ibge },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_ibge = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_siafi,
+                                        expression: "adrctt_siafi",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "adrctt_siafi",
+                                      name: "adrctt_siafi",
+                                    },
+                                    domProps: { value: _vm.adrctt_siafi },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_siafi = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_zipcode,
+                                        expression: "adrctt_zipcode",
+                                      },
+                                    ],
+                                    staticClass: "form-control cepMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "adrctt_zipcode",
+                                      name: "adrctt_zipcode",
+                                    },
+                                    domProps: { value: _vm.adrctt_zipcode },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_zipcode = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(4),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_public_place" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_public_place" },
+                                  },
                                   [_vm._v("Tipo de logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -29718,7 +29860,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_address" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_address" },
+                                  },
                                   [_vm._v("Logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -29752,7 +29897,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_number" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_number" },
+                                  },
                                   [_vm._v("Número")]
                                 ),
                                 _vm._v(" "),
@@ -29786,7 +29934,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_complement" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_complement" },
+                                  },
                                   [_vm._v("Complemento")]
                                 ),
                                 _vm._v(" "),
@@ -29823,7 +29974,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_district" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_district" },
+                                  },
                                   [_vm._v("Bairro")]
                                 ),
                                 _vm._v(" "),
@@ -29855,9 +30009,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "adrctt_city" } }, [
-                                  _vm._v("Cidade"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_city" },
+                                  },
+                                  [_vm._v("Cidade")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -29891,7 +30050,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_state" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_state" },
+                                  },
                                   [_vm._v("Estado")]
                                 ),
                                 _vm._v(" "),
@@ -29925,7 +30087,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrctt_country" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrctt_country" },
+                                  },
                                   [_vm._v("País")]
                                 ),
                                 _vm._v(" "),
@@ -29999,41 +30164,101 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_zipcode" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_zipcode" },
+                                  },
                                   [_vm._v("CEP")]
                                 ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.adrcmp_zipcode,
-                                      expression: "adrcmp_zipcode",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_ibge,
+                                        expression: "adrcmp_ibge",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "adrcmp_ibge",
+                                      name: "adrcmp_ibge",
                                     },
-                                  ],
-                                  staticClass: "form-control cepMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "adrcmp_zipcode",
-                                    name: "adrcmp_zipcode",
-                                  },
-                                  domProps: { value: _vm.adrcmp_zipcode },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.adrcmp_zipcode = $event.target.value
+                                    domProps: { value: _vm.adrcmp_ibge },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_ibge = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_siafi,
+                                        expression: "adrcmp_siafi",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "adrcmp_siafi",
+                                      name: "adrcmp_siafi",
+                                    },
+                                    domProps: { value: _vm.adrcmp_siafi },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_siafi = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_zipcode,
+                                        expression: "adrcmp_zipcode",
+                                      },
+                                    ],
+                                    staticClass: "form-control cepMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "adrcmp_zipcode",
+                                      name: "adrcmp_zipcode",
+                                    },
+                                    domProps: { value: _vm.adrcmp_zipcode },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_zipcode = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(5),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_public_place" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_public_place" },
+                                  },
                                   [_vm._v("Tipo de logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -30070,7 +30295,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_address" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_address" },
+                                  },
                                   [_vm._v("Logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -30104,7 +30332,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_number" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_number" },
+                                  },
                                   [_vm._v("Número")]
                                 ),
                                 _vm._v(" "),
@@ -30138,7 +30369,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_complement" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_complement" },
+                                  },
                                   [_vm._v("Complemento")]
                                 ),
                                 _vm._v(" "),
@@ -30175,7 +30409,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_district" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_district" },
+                                  },
                                   [_vm._v("Bairro")]
                                 ),
                                 _vm._v(" "),
@@ -30207,9 +30444,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "adrcmp_city" } }, [
-                                  _vm._v("Cidade"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_city" },
+                                  },
+                                  [_vm._v("Cidade")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -30243,7 +30485,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_state" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_state" },
+                                  },
                                   [_vm._v("Estado")]
                                 ),
                                 _vm._v(" "),
@@ -30277,7 +30522,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "adrcmp_country" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "adrcmp_country" },
+                                  },
                                   [_vm._v("País")]
                                 ),
                                 _vm._v(" "),
@@ -30317,7 +30565,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(3),
+                _vm._m(6),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -30347,7 +30595,7 @@ var render = function () {
           },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _vm._m(7),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -30363,7 +30611,7 @@ var render = function () {
                           expression: "id",
                         },
                       ],
-                      attrs: { type: "hidden", id: "id", name: "id" },
+                      attrs: { type: "hidden", id: "edit-id", name: "id" },
                       domProps: { value: _vm.id },
                       on: {
                         input: function ($event) {
@@ -30375,7 +30623,9 @@ var render = function () {
                       },
                     }),
                     _vm._v(" "),
-                    _vm._m(5),
+                    _vm._m(8),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [_vm._v(" ")]),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -30398,9 +30648,14 @@ var render = function () {
                           [
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "edit-name" } }, [
-                                  _vm._v("Nome"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-name" },
+                                  },
+                                  [_vm._v("Nome")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -30430,9 +30685,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "edit-email" } }, [
-                                  _vm._v("Email"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-email" },
+                                  },
+                                  [_vm._v("Email")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -30464,9 +30724,14 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "edit-mobile" } }, [
-                                  _vm._v("Celular"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-mobile" },
+                                  },
+                                  [_vm._v("Celular")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -30496,9 +30761,14 @@ var render = function () {
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "edit-phone" } }, [
-                                  _vm._v("Telefone"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-phone" },
+                                  },
+                                  [_vm._v("Telefone")]
+                                ),
                                 _vm._v(" "),
                                 _c("input", {
                                   directives: [
@@ -30530,41 +30800,53 @@ var render = function () {
                             _vm._v(" "),
                             _c("div", { staticClass: "row" }, [
                               _c("div", { staticClass: "col-6" }, [
-                                _c("label", { attrs: { for: "edit-cnpj" } }, [
-                                  _vm._v("CNPJ"),
-                                ]),
+                                _c(
+                                  "label",
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_cnpj" },
+                                  },
+                                  [_vm._v("CNPJ")]
+                                ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.cnpj,
-                                      expression: "cnpj",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.cnpj,
+                                        expression: "cnpj",
+                                      },
+                                    ],
+                                    staticClass: "form-control cnpjMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "edit-adrcmp_cnpj",
+                                      name: "cnpj",
                                     },
-                                  ],
-                                  staticClass: "form-control cpfcnpjMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "edit-cnpj",
-                                    name: "cnpj",
-                                  },
-                                  domProps: { value: _vm.cnpj },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.cnpj = $event.target.value
+                                    domProps: { value: _vm.cnpj },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.cnpj = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(9),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-company" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_company" },
+                                  },
                                   [_vm._v("Empresa")]
                                 ),
                                 _vm._v(" "),
@@ -30580,7 +30862,7 @@ var render = function () {
                                   staticClass: "form-control",
                                   attrs: {
                                     type: "text",
-                                    id: "edit-company",
+                                    id: "edit-adrcmp_company",
                                     name: "company",
                                   },
                                   domProps: { value: _vm.company },
@@ -30620,7 +30902,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrctt_address_id",
+                                id: "edit-adrctt_address_id",
                                 name: "adrctt_address_id",
                               },
                               domProps: { value: _vm.adrctt_address_id },
@@ -30645,7 +30927,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrctt_contact_id",
+                                id: "edit-adrctt_contact_id",
                                 name: "adrctt_contact_id",
                               },
                               domProps: { value: _vm.adrctt_contact_id },
@@ -30670,7 +30952,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrctt_type",
+                                id: "edit-adrctt_type",
                                 name: "adrctt_type",
                                 value: "contact",
                               },
@@ -30689,41 +30971,99 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_zipcode" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_zipcode" },
+                                  },
                                   [_vm._v("CEP")]
                                 ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.adrctt_zipcode,
-                                      expression: "adrctt_zipcode",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_ibge,
+                                        expression: "adrctt_ibge",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "edit-adrctt_ibge",
+                                      name: "adrctt_ibge",
                                     },
-                                  ],
-                                  staticClass: "form-control cepMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "edit-adrctt_zipcode",
-                                    name: "adrctt_zipcode",
-                                  },
-                                  domProps: { value: _vm.adrctt_zipcode },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.adrctt_zipcode = $event.target.value
+                                    domProps: { value: _vm.adrctt_ibge },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_ibge = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_siafi,
+                                        expression: "adrctt_siafi",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "edit-adrctt_siafi",
+                                      name: "adrctt_siafi",
+                                    },
+                                    domProps: { value: _vm.adrctt_siafi },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_siafi = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrctt_zipcode,
+                                        expression: "adrctt_zipcode",
+                                      },
+                                    ],
+                                    staticClass: "form-control cepMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "edit-adrctt_zipcode",
+                                      name: "adrctt_zipcode",
+                                    },
+                                    domProps: { value: _vm.adrctt_zipcode },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrctt_zipcode = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(10),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
                                   {
+                                    staticClass: "form-label",
                                     attrs: { for: "edit-adrctt_public_place" },
                                   },
                                   [_vm._v("Tipo de logradouro")]
@@ -30762,7 +31102,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_address" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_address" },
+                                  },
                                   [_vm._v("Logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -30796,7 +31139,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_number" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_number" },
+                                  },
                                   [_vm._v("Número")]
                                 ),
                                 _vm._v(" "),
@@ -30830,7 +31176,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_complement" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_complement" },
+                                  },
                                   [_vm._v("Complemento")]
                                 ),
                                 _vm._v(" "),
@@ -30867,7 +31216,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_district" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_district" },
+                                  },
                                   [_vm._v("Bairro")]
                                 ),
                                 _vm._v(" "),
@@ -30901,7 +31253,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_city" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_city" },
+                                  },
                                   [_vm._v("Cidade")]
                                 ),
                                 _vm._v(" "),
@@ -30937,7 +31292,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_state" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_state" },
+                                  },
                                   [_vm._v("Estado")]
                                 ),
                                 _vm._v(" "),
@@ -30971,7 +31329,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrctt_country" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrctt_country" },
+                                  },
                                   [_vm._v("País")]
                                 ),
                                 _vm._v(" "),
@@ -31028,7 +31389,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrcmp_address_id",
+                                id: "edit-adrcmp_address_id",
                                 name: "adrcmp_address_id",
                               },
                               domProps: { value: _vm.adrcmp_address_id },
@@ -31053,7 +31414,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrcmp_contact_id",
+                                id: "edit-adrcmp_contact_id",
                                 name: "adrcmp_contact_id",
                               },
                               domProps: { value: _vm.adrcmp_contact_id },
@@ -31078,7 +31439,7 @@ var render = function () {
                               ],
                               attrs: {
                                 type: "hidden",
-                                id: "adrcmp_type",
+                                id: "edit-adrcmp_type",
                                 name: "adrcmp_type",
                                 value: "company",
                               },
@@ -31097,41 +31458,99 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_zipcode" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_zipcode" },
+                                  },
                                   [_vm._v("CEP")]
                                 ),
                                 _vm._v(" "),
-                                _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.adrcmp_zipcode,
-                                      expression: "adrcmp_zipcode",
+                                _c("div", { staticClass: "input-group mb-3" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_ibge,
+                                        expression: "adrcmp_ibge",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "edit-adrcmp_ibge",
+                                      name: "adrcmp_ibge",
                                     },
-                                  ],
-                                  staticClass: "form-control cepMask",
-                                  attrs: {
-                                    type: "text",
-                                    id: "edit-adrcmp_zipcode",
-                                    name: "adrcmp_zipcode",
-                                  },
-                                  domProps: { value: _vm.adrcmp_zipcode },
-                                  on: {
-                                    input: function ($event) {
-                                      if ($event.target.composing) {
-                                        return
-                                      }
-                                      _vm.adrcmp_zipcode = $event.target.value
+                                    domProps: { value: _vm.adrcmp_ibge },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_ibge = $event.target.value
+                                      },
                                     },
-                                  },
-                                }),
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_siafi,
+                                        expression: "adrcmp_siafi",
+                                      },
+                                    ],
+                                    attrs: {
+                                      type: "hidden",
+                                      id: "edit-adrcmp_siafi",
+                                      name: "adrcmp_siafi",
+                                    },
+                                    domProps: { value: _vm.adrcmp_siafi },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_siafi = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.adrcmp_zipcode,
+                                        expression: "adrcmp_zipcode",
+                                      },
+                                    ],
+                                    staticClass: "form-control cepMask",
+                                    attrs: {
+                                      type: "text",
+                                      id: "edit-adrcmp_zipcode",
+                                      name: "adrcmp_zipcode",
+                                    },
+                                    domProps: { value: _vm.adrcmp_zipcode },
+                                    on: {
+                                      input: function ($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.adrcmp_zipcode = $event.target.value
+                                      },
+                                    },
+                                  }),
+                                  _vm._v(" "),
+                                  _vm._m(11),
+                                ]),
                               ]),
                               _vm._v(" "),
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
                                   {
+                                    staticClass: "form-label",
                                     attrs: { for: "edit-adrcmp_public_place" },
                                   },
                                   [_vm._v("Tipo de logradouro")]
@@ -31170,7 +31589,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_address" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_address" },
+                                  },
                                   [_vm._v("Logradouro")]
                                 ),
                                 _vm._v(" "),
@@ -31204,7 +31626,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_number" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_number" },
+                                  },
                                   [_vm._v("Número")]
                                 ),
                                 _vm._v(" "),
@@ -31238,7 +31663,10 @@ var render = function () {
                               _c("div", { staticClass: "col-sm-6 col-md-3" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_complement" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_complement" },
+                                  },
                                   [_vm._v("Complemento")]
                                 ),
                                 _vm._v(" "),
@@ -31275,7 +31703,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_district" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_district" },
+                                  },
                                   [_vm._v("Bairro")]
                                 ),
                                 _vm._v(" "),
@@ -31309,7 +31740,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_city" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_city" },
+                                  },
                                   [_vm._v("Cidade")]
                                 ),
                                 _vm._v(" "),
@@ -31345,7 +31779,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_state" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_state" },
+                                  },
                                   [_vm._v("Estado")]
                                 ),
                                 _vm._v(" "),
@@ -31379,7 +31816,10 @@ var render = function () {
                               _c("div", { staticClass: "col-6" }, [
                                 _c(
                                   "label",
-                                  { attrs: { for: "edit-adrcmp_country" } },
+                                  {
+                                    staticClass: "form-label",
+                                    attrs: { for: "edit-adrcmp_country" },
+                                  },
                                   [_vm._v("País")]
                                 ),
                                 _vm._v(" "),
@@ -31420,7 +31860,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
-                _vm._m(6),
+                _vm._m(12),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -31552,6 +31992,60 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCNPJ",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "adrcmp_",
+          "zip-control": "",
+          title: "Buscar dados do CNPJ",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCEP",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "adrctt_",
+          "zip-control": "",
+          title: "Buscar CEP",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCEP",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "adrcmp_",
+          "zip-control": "",
+          title: "Buscar CEP",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
       "button",
       {
         staticClass: "btn btn-secondary btn-sm modal-close",
@@ -31590,7 +32084,7 @@ var staticRenderFns = [
       "ul",
       {
         staticClass: "nav nav-tabs",
-        attrs: { id: "formTab", role: "tablist" },
+        attrs: { id: "edit-formTab", role: "tablist" },
       },
       [
         _c("li", { staticClass: "nav-item", attrs: { role: "presentation" } }, [
@@ -31650,6 +32144,60 @@ var staticRenderFns = [
           ),
         ]),
       ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCNPJ",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "edit-adrcmp_",
+          "zip-control": "",
+          title: "Buscar dados do CNPJ",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCEP",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "edit-adrctt_",
+          "zip-control": "",
+          title: "Buscar CEP",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      {
+        staticClass: "input-group-text getCEP",
+        attrs: {
+          id: "basic-addon2",
+          "zip-prefix": "edit-adrcmp_",
+          "zip-control": "",
+          title: "Buscar CEP",
+        },
+      },
+      [_c("i", { staticClass: "fas fa-search fa-fw" })]
     )
   },
   function () {

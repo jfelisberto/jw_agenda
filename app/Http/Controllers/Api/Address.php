@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Response;
 use App\Models\Address as endereco;
 use App\Components\FlashMessages;
 
 class Address extends Controller
 {
     use FlashMessages;
-
     /**
      * Display a listing of the resource.
      *
@@ -45,6 +45,8 @@ class Address extends Controller
                     'contact_id'    => $value['contact_id'],
                     'type'          => $value['type'],
                     'zipcode'       => $value['zipcode'],
+                    'ibge'          => $value['ibge'],
+                    'siafi'         => $value['siafi'],
                     'public_place'  => $value['public_place'],
                     'address'       => $value['address'],
                     'number'        => $value['number'],
@@ -107,21 +109,51 @@ class Address extends Controller
     {
         try {
             foreach ($request->address as $value) {
-                $data = Address::find($value['id']);
-                $address = [
-                    'contact_id'    => $value['contact_id'],
-                    'type'          => $value['type'],
-                    'zipcode'       => $value['zipcode'],
-                    'public_place'  => $value['public_place'],
-                    'address'       => $value['address'],
-                    'number'        => $value['number'],
-                    'complement'    => $value['complement'],
-                    'district'      => $value['district'],
-                    'city'          => $value['city'],
-                    'state'         => $value['state'],
-                    'country'       => $value['country']
-                ];
-                $data->fill($address);
+                if (!empty($value['id'])) {
+                    $data = Address::find($value['id']);
+                    $address = [
+                        'contact_id'    => $value['contact_id'],
+                        'type'          => $value['type'],
+                        'ibge'          => $value['ibge'],
+                        'siafi'         => $value['siafi'],
+                        'zipcode'       => $value['zipcode'],
+                        'public_place'  => $value['public_place'],
+                        'address'       => $value['address'],
+                        'number'        => $value['number'],
+                        'complement'    => $value['complement'],
+                        'district'      => $value['district'],
+                        'city'          => $value['city'],
+                        'state'         => $value['state'],
+                        'country'       => $value['country']
+                    ];
+                    $data->fill($address);
+
+                    if ($dataAddress->save()) {
+                        $msgAddr[] = "<br />Endereço ({$value['public_place']} {$value['address']}), atualizado com sucesso";
+                    } else {
+                        $msgAddr[] = "<br />Houve um erro ao cadastrar o endreço: {$value['public_place']} {$value['address']}";
+                        $status = "warning";
+                    }
+                } else {
+                    if (!empty(trim($value['zipcode']))) {
+                        $address = [
+                            'contact_id'    => $id,
+                            'type'          => $value['type'],
+                            'ibge'          => $value['ibge'],
+                            'siafi'         => $value['siafi'],
+                            'zipcode'       => $value['zipcode'],
+                            'public_place'  => $value['public_place'],
+                            'address'       => $value['address'],
+                            'number'        => $value['number'],
+                            'complement'    => $value['complement'],
+                            'district'      => $value['district'],
+                            'city'          => $value['city'],
+                            'state'         => $value['state'],
+                            'country'       => $value['country']
+                        ];
+                        $data[] = Address::create($address);
+                    }
+                }
 
                 if ($data->save()) {
                     $msgAddr[] = "<br />Endereço ({$value['public_place']} {$value['address']}), atualizado com sucesso";
@@ -135,7 +167,6 @@ class Address extends Controller
             $code = 200;
 
             $result = [
-                'data'      => [$data,$request->all()],
                 'message'   => $message,
                 'status'    => $status
             ];

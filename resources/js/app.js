@@ -6,7 +6,7 @@ import VueRouter from 'vue-router';
 import routes from './routes';
 import './axios';
 
-Vue.component('schedule-component', require('./components/ScheduleComponent.vue').default);
+//Vue.component('schedule-component', require('./components/ScheduleComponent.vue').default);
 
 Vue.use(VueRouter);
 const router = new VueRouter({
