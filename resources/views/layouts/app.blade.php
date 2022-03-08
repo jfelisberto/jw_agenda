@@ -84,10 +84,6 @@
 
             table.buttons(0, null).container().appendTo(table.table().container(), '#tblData_wrapper .col-md-3:eq(0)');
 
-            $('#tblData').on('click', 'tr', function() {
-                var trid = table.row(this).id();
-                console.log('Clicked row id '+trid);
-            } );
         });
         </script>
 

@@ -18,6 +18,10 @@ class Autocomplete extends Controller
     */
     public function getCEP(Request $request) {
         try {
+            if (empty($request->zipcode)) {
+                return Response::json(['message' => 'Você deve informar um CEP para prosseguir com a busca', 'status' => 'warning'], 200);
+            }
+
             $zipcode = $request->zipcode;
             $zipControl = $request->zipControl;
             $zipPrefix = $request->zipPrefix;
@@ -79,8 +83,12 @@ class Autocomplete extends Controller
     }
     public function getCNPJ(Request $request) {
         try {
-            $zipControl = $request->zipControl;
+            if (empty($request->cnpj)) {
+                return Response::json(['message' => 'Você deve informar um CNPJ para prosseguir com a busca', 'status' => 'warning'], 200);
+            }
+
             $zipPrefix = $request->zipPrefix;
+            $zipControl = $request->zipControl;
             $country_id = $request->country_id;
 
             $parameters = array(
@@ -90,13 +98,13 @@ class Autocomplete extends Controller
                 ),
                 'customRequest' => 'GET',
             );
-            $document = $this->clear_data($request->cnpj);
+            $cnpj = $this->clear_data($request->cnpj);
 
-            $url = "https://cnpjs.rocks/cnpj/{$document}";
-            $result = $this->send_curl_request($url, $parameters);
+            $url = "https://cnpjs.rocks/cnpj/{$cnpj}";
+            $response = $this->send_curl_request($url, $parameters);
 
-            if ($result['status'] == 'success') {
-                preg_match_all('!<ul>.*?<li.*?>.*?</li>.*?</ul>!', $result['response'], $newData);
+            if ($response['status'] == 'success') {
+                preg_match_all('!<ul>.*?<li.*?>.*?</li>.*?</ul>!', $response['response'], $newData);
 
                 if (count($newData[0]) >= 1) {
                     foreach ($newData[0] as $key => $value) {
@@ -160,8 +168,8 @@ class Autocomplete extends Controller
                         $newDatalist2['complemento'] = '';
                     }
                     $result = $newDatalist2;
-                    $result['e_mail'] = strtolower($newDatalist2['e_mail']);
-                    #$result['data']['socio'] = ucwords(strtolower($newDatalist2['socio']));
+                    if (isSEt($newDatalist2['e_mail']))  $result['e_mail'] = strtolower($newDatalist2['e_mail']);
+                    if (isSEt($newDatalist2['socio']))  $result['data']['socio'] = ucwords(strtolower($newDatalist2['socio']));
                     $result['zipControl'] = $zipControl;
                     $result['zipPrefix'] = $zipPrefix;
                     $result['country_id'] = $country_id;
@@ -180,7 +188,7 @@ class Autocomplete extends Controller
                     $status = 'success';
                 } else {
                     $status = 'error';
-                    $message = 'Não foi possível resolver a consulta para o CNPJ ' . $document;
+                    $message = 'Não foi possível resolver a consulta para o CNPJ ' . $cnpj;
                 }
             } else {
                 $result = $response;
@@ -196,7 +204,7 @@ class Autocomplete extends Controller
 
             return Response::json($result, 200);
         } catch (\Exception $e) {
-            return Response::json(['message' => 'Houve um erro ao processar seus dados', 'status' => 'error', 'e_error' => $e->getMessage(),$request->all()], 500);
+            return Response::json(['message' => 'Houve um erro ao processar seus dados', 'status' => 'error', 'e_error' => $e->getMessage(), 'response' => $response], 500);
         }
     }
 
