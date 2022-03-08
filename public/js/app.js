@@ -6530,8 +6530,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
 
-(axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = 'http://localhost:8000'; //axios.defaults.baseURL = 'http://jefweb.net/jefweb/jw_agenda/public'
-
+(axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.baseURL) = 'http://localhost:8000';
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use({
   install: function install(Vue) {
     Vue.prototype.$http = (axios__WEBPACK_IMPORTED_MODULE_0___default());
