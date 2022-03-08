@@ -3,8 +3,9 @@ Agenda de contatos API RES<br />
 Esse programa foi criado para você cadastrar seus contatos<br /><br />
 Ele conta com:<br />
 - Busca por CEP para localizar endereços<br />
-- Busca por CNPJ para buscar o nome da empresa e preenchero o Endereço comercial<br /><br />
-A priori, para uma fácil utilização e testes dos recursos deste software, não foi implementado uma camada de autenticação de acesso e nem nas requisições a API<br />
+- Busca por CNPJ para buscar o nome da empresa e preenchero o Endereço comercial<br />
+<br />
+Para uma fácil utilização e testes dos recursos deste software, não foi implementado uma camada de autenticação de acesso e nem nas requisições a API<br />
 
 ## Contribuição
 Obrigado por considerar contribuir com a Agenda de Contatos
@@ -18,7 +19,7 @@ Esse sistema foi criado utilizando as seguintes tecnologias:<br />
 <a href="https://sweetalert2.github.io/">Sweet Alert 2 v10.x</a><br />
 <a href="https://datatables.net/">Data Tables v5.1.11</a><br />
 <br />
-Para utilização do sistema tenha em seu servidor os seguintes pacote<br />
+Para utilização do sistema tenha em seu servidor os seguintes pacotes<br />
 - Apache<br />
 - PHP 7.4<br />
 - MySQL ou MariaDB<br />
@@ -29,12 +30,13 @@ Para utilização do sistema tenha em seu servidor os seguintes pacote<br />
 Vamos aos primeiros passos da configuração.
 
 1 - Crie o Banco de dados <code>jw_agenda</code> no seu mysql<br />
-    <code>CREATE SCHEMA `jw_agenda` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</code>
+    <code>CREATE SCHEMA `jw_agenda` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;</code><br />
 <br />
 2 - Setando o acesso ao banco de dados:<br />
+    Renomeie o arquivo <code>.env.example</code> para <code>.env</code><br />
     No seu arquivo .env informe em:<br />
     "DB_USERNAME" o seu usuário do banco de dados<br />
-    "DB_PASSWORD" a senha deste usuário no MySQLbr />
+    "DB_PASSWORD" a senha deste usuário no MySQL<br />
 <br />
 3 - Execute o comando:<br />
     <code>composer install</code><br />
@@ -58,8 +60,7 @@ Vamos aos primeiros passos da configuração.
 <br />
 8 - Se a aplicação não estiver em dominio na sua maquina execute o comando:<br />
     <code>php artisan serve</code><br />
-    Para criar o ambiente virtual para acessar a aplicação atravez da url:<br />
-    <a href="http://localhost:8000">http://localhost:8000/</a><br />
+    Para criar o ambiente virtual para acessar a aplicação atravez da url: <a href="http://localhost:8000">http://localhost:8000/</a><br />
 <br />
 9 - Depois é só acessar a aplicação através do seu navegador<br />
 
