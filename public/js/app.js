@@ -5515,11 +5515,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     console.log('Component Start Create.');
   },
   mounted: function mounted() {
-    var _this = this;
-
-    this.$http.get('/api/contact').then(function (response) {
-      _this.contacts = response.data.data;
-    });
+    this.getContacts();
   },
   methods: {
     newContact: function newContact() {
@@ -5563,7 +5559,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       $("#fomrTabContent #contact").addClass('show').addClass('active');
     },
     addContact: function addContact() {
-      var _this2 = this;
+      var _this = this;
 
       var data = {
         name: this.name,
@@ -5608,8 +5604,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sa(response.data.status, '', response.data.message, 1500);
 
         if (response.data.status === 'success') {
-          _this2.$http.get('/api/contact').then(function (response) {
-            _this2.contacts = response.data.data;
+          _this.$http.get('/api/contact').then(function (response) {
+            _this.contacts = response.data.data;
           });
 
           closeModal('formContact');
@@ -5617,90 +5613,97 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     editContact: function editContact(id) {
-      var _this3 = this;
+      var _this2 = this;
 
       this.$http.get('/api/contact/' + id + '/edit').then(function (response) {
         sa(response.data.status, '', response.data.message, 1500);
-        console.log(response.data);
 
         if (response.data.status === 'success') {
-          _this3.id = response.data.data.id;
-          _this3.name = response.data.data.name;
-          _this3.email = response.data.data.email;
-          _this3.mobile = response.data.data.mobile;
-          _this3.phone = response.data.data.phone;
-          _this3.cnpj = response.data.data.cnpj;
-          _this3.company = response.data.data.company;
+          _this2.id = response.data.data.id;
+          _this2.name = response.data.data.name;
+          _this2.email = response.data.data.email;
+          _this2.mobile = response.data.data.mobile;
+          _this2.phone = response.data.data.phone;
+          _this2.cnpj = response.data.data.cnpj;
+          _this2.company = response.data.data.company;
 
           if (typeof response.data.data.address[0] !== "undefined") {
-            _this3.adrctt_address_id = response.data.data.address[0].id;
-            _this3.adrctt_contact_id = response.data.data.address[0].contact_id;
-            _this3.adrctt_type = response.data.data.address[0].type;
-            _this3.adrctt_ibge = response.data.data.address[0].ibge;
-            _this3.adrctt_siafi = response.data.data.address[0].siafi;
-            _this3.adrctt_zipcode = response.data.data.address[0].zipcode;
-            _this3.adrctt_address = response.data.data.address[0].address;
-            _this3.adrctt_public_place = response.data.data.address[0].public_place;
-            _this3.adrctt_number = response.data.data.address[0].number;
-            _this3.adrctt_complement = response.data.data.address[0].complement;
-            _this3.adrctt_district = response.data.data.address[0].district;
-            _this3.adrctt_city = response.data.data.address[0].city;
-            _this3.adrctt_state = response.data.data.address[0].state;
-            _this3.adrctt_country = response.data.data.address[0].country;
+            _this2.adrctt_address_id = response.data.data.address[0].id;
+            _this2.adrctt_contact_id = response.data.data.address[0].contact_id;
+            _this2.adrctt_type = response.data.data.address[0].type;
+            _this2.adrctt_ibge = response.data.data.address[0].ibge;
+            _this2.adrctt_siafi = response.data.data.address[0].siafi;
+            _this2.adrctt_zipcode = response.data.data.address[0].zipcode;
+            _this2.adrctt_address = response.data.data.address[0].address;
+            _this2.adrctt_public_place = response.data.data.address[0].public_place;
+            _this2.adrctt_number = response.data.data.address[0].number;
+            _this2.adrctt_complement = response.data.data.address[0].complement;
+            _this2.adrctt_district = response.data.data.address[0].district;
+            _this2.adrctt_city = response.data.data.address[0].city;
+            _this2.adrctt_state = response.data.data.address[0].state;
+            _this2.adrctt_country = response.data.data.address[0].country;
           } else {
-            _this3.adrctt_address_id = '';
-            _this3.adrctt_contact_id = '';
-            _this3.adrctt_type = 'contact', _this3.adrctt_ibge = '';
-            _this3.adrctt_siafi = '';
-            _this3.adrctt_zipcode = '';
-            _this3.adrctt_public_place = '';
-            _this3.adrctt_address = '';
-            _this3.adrctt_number = '';
-            _this3.adrctt_complement = '';
-            _this3.adrctt_district = '';
-            _this3.adrctt_city = '';
-            _this3.adrctt_state = '';
-            _this3.adrctt_country = 'Brasil';
+            _this2.adrctt_address_id = '';
+            _this2.adrctt_contact_id = '';
+            _this2.adrctt_type = 'contact', _this2.adrctt_ibge = '';
+            _this2.adrctt_siafi = '';
+            _this2.adrctt_zipcode = '';
+            _this2.adrctt_public_place = '';
+            _this2.adrctt_address = '';
+            _this2.adrctt_number = '';
+            _this2.adrctt_complement = '';
+            _this2.adrctt_district = '';
+            _this2.adrctt_city = '';
+            _this2.adrctt_state = '';
+            _this2.adrctt_country = 'Brasil';
           }
 
           if (typeof response.data.data.address[1] !== "undefined") {
-            _this3.adrcmp_address_id = response.data.data.address[1].id;
-            _this3.adrcmp_contact_id = response.data.data.address[1].contact_id;
-            _this3.adrcmp_type = response.data.data.address[1].type;
-            _this3.adrcmp_ibge = response.data.data.address[1].ibge;
-            _this3.adrcmp_siafi = response.data.data.address[1].siafi;
-            _this3.adrcmp_zipcode = response.data.data.address[1].zipcode;
-            _this3.adrcmp_public_place = response.data.data.address[1].public_place;
-            _this3.adrcmp_address = response.data.data.address[1].address;
-            _this3.adrcmp_number = response.data.data.address[1].number;
-            _this3.adrcmp_complement = response.data.data.address[1].complement;
-            _this3.adrcmp_district = response.data.data.address[1].district;
-            _this3.adrcmp_city = response.data.data.address[1].city;
-            _this3.adrcmp_state = response.data.data.address[1].state;
-            _this3.adrcmp_country = response.data.data.address[1].country;
+            _this2.adrcmp_address_id = response.data.data.address[1].id;
+            _this2.adrcmp_contact_id = response.data.data.address[1].contact_id;
+            _this2.adrcmp_type = response.data.data.address[1].type;
+            _this2.adrcmp_ibge = response.data.data.address[1].ibge;
+            _this2.adrcmp_siafi = response.data.data.address[1].siafi;
+            _this2.adrcmp_zipcode = response.data.data.address[1].zipcode;
+            _this2.adrcmp_public_place = response.data.data.address[1].public_place;
+            _this2.adrcmp_address = response.data.data.address[1].address;
+            _this2.adrcmp_number = response.data.data.address[1].number;
+            _this2.adrcmp_complement = response.data.data.address[1].complement;
+            _this2.adrcmp_district = response.data.data.address[1].district;
+            _this2.adrcmp_city = response.data.data.address[1].city;
+            _this2.adrcmp_state = response.data.data.address[1].state;
+            _this2.adrcmp_country = response.data.data.address[1].country;
           } else {
-            _this3.adrcmp_address_id = '';
-            _this3.adrcmp_contact_id = '';
-            _this3.adrcmp_type = 'company', _this3.adrcmp_ibge = '';
-            _this3.adrcmp_siafi = '';
-            _this3.adrcmp_zipcode = '';
-            _this3.adrcmp_public_place = '';
-            _this3.adrcmp_address = '';
-            _this3.adrcmp_number = '';
-            _this3.adrcmp_complement = '';
-            _this3.adrcmp_district = '';
-            _this3.adrcmp_city = '';
-            _this3.adrcmp_state = '';
-            _this3.adrcmp_country = 'Brasil';
+            _this2.adrcmp_address_id = '';
+            _this2.adrcmp_contact_id = '';
+            _this2.adrcmp_type = 'company', _this2.adrcmp_ibge = '';
+            _this2.adrcmp_siafi = '';
+            _this2.adrcmp_zipcode = '';
+            _this2.adrcmp_public_place = '';
+            _this2.adrcmp_address = '';
+            _this2.adrcmp_number = '';
+            _this2.adrcmp_complement = '';
+            _this2.adrcmp_district = '';
+            _this2.adrcmp_city = '';
+            _this2.adrcmp_state = '';
+            _this2.adrcmp_country = 'Brasil';
           }
+
+          $('#saveData').addClass('hidden');
+          $('#editData').removeClass('hidden');
+          $('#formTab .nav-link').removeClass('active');
+          $('#formTab #contact-tab').addClass('active');
+          $('#fomrTabContent .tab-pane').removeClass('show').removeClass('active');
+          $("#fomrTabContent #contact").addClass('show').addClass('active');
         }
       });
-      $('#saveData').addClass('hidden');
-      $('#editData').removeClass('hidden');
-      $('#formTab .nav-link').removeClass('active');
-      $('#formTab #contact-tab').addClass('active');
-      $('#fomrTabContent .tab-pane').removeClass('show').removeClass('active');
-      $("#fomrTabContent #contact").addClass('show').addClass('active');
+    },
+    getContacts: function getContacts() {
+      var _this3 = this;
+
+      this.$http.get('/api/contact').then(function (response) {
+        _this3.contacts = response.data.data;
+      });
     },
     updContact: function updContact() {
       var _this4 = this;
@@ -5758,19 +5761,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    deleteData: function deleteData(id) {
-      var _this5 = this;
-
-      this.$http["delete"]('/api/contact/' + id).then(function (response) {
-        sa(response.data.status, '', response.data.message, 1500);
-
-        if (response.data.status === 'success') {
-          _this5.$http.get('/api/contact').then(function (response) {
-            _this5.contacts = response.data.data;
-          });
-        }
-      });
-    },
     deleteContact: function deleteContact(id, name) {
       var swalBootstrapButtons = Swal.mixin({
         customClass: {
@@ -5793,8 +5783,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           http["delete"]('/api/contact/' + id).then(function (response) {
             sa(response.data.status, '', response.data.message, 1500);
             setTimeout(function () {
-              document.location.reload(true);
-            }, 500);
+              document.location.reload(true); //this.getContacts
+            }, 500); //this.getContacts()
           });
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           return false;
@@ -5802,7 +5792,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     },
     getCEP: function getCEP(zipPrefix, zipControl) {
-      var _this6 = this;
+      var _this5 = this;
 
       var data = {
         zipcode: '',
@@ -5821,29 +5811,29 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         if (response.data.status === 'success') {
           if (zipPrefix === 'adrctt_') {
-            _this6.adrctt_ibge = response.data.data.ibge;
-            _this6.adrctt_siafi = response.data.data.siafi;
-            _this6.adrctt_public_place = response.data.data.public_place;
-            _this6.adrctt_address = response.data.data.address;
-            _this6.adrctt_district = response.data.data.district;
-            _this6.adrctt_city = response.data.data.city;
-            _this6.adrctt_state = response.data.data.state;
-            _this6.adrctt_country = 'Brasil';
+            _this5.adrctt_ibge = response.data.data.ibge;
+            _this5.adrctt_siafi = response.data.data.siafi;
+            _this5.adrctt_public_place = response.data.data.public_place;
+            _this5.adrctt_address = response.data.data.address;
+            _this5.adrctt_district = response.data.data.district;
+            _this5.adrctt_city = response.data.data.city;
+            _this5.adrctt_state = response.data.data.state;
+            _this5.adrctt_country = 'Brasil';
           } else {
-            _this6.adrcmp_ibge = response.data.data.ibge;
-            _this6.adrcmp_siafi = response.data.data.siafi;
-            _this6.adrcmp_public_place = response.data.data.public_place;
-            _this6.adrcmp_address = response.data.data.address;
-            _this6.adrcmp_district = response.data.data.district;
-            _this6.adrcmp_city = response.data.data.city;
-            _this6.adrcmp_state = response.data.data.state;
-            _this6.adrcmp_country = 'Brasil';
+            _this5.adrcmp_ibge = response.data.data.ibge;
+            _this5.adrcmp_siafi = response.data.data.siafi;
+            _this5.adrcmp_public_place = response.data.data.public_place;
+            _this5.adrcmp_address = response.data.data.address;
+            _this5.adrcmp_district = response.data.data.district;
+            _this5.adrcmp_city = response.data.data.city;
+            _this5.adrcmp_state = response.data.data.state;
+            _this5.adrcmp_country = 'Brasil';
           }
         }
       });
     },
     getCNPJ: function getCNPJ(zipPrefix, zipControl) {
-      var _this7 = this;
+      var _this6 = this;
 
       var data = {
         cnpj: this.cnpj,
@@ -5854,24 +5844,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         sa(response.data.status, '', response.data.message, 1500);
 
         if (response.data.status === 'success') {
-          _this7.company = response.data.data.nome_fantasia;
+          _this6.company = response.data.data.nome_fantasia;
 
           if (response.data.data.cep) {
             data.zipcode = response.data.data.cep;
 
-            _this7.$http.post('/api/search/getCEP', data).then(function (response) {
+            _this6.$http.post('/api/search/getCEP', data).then(function (response) {
               sa(response.data.status, '', response.data.message, 1500);
 
               if (response.data.status === 'success') {
-                _this7.adrcmp_ibge = response.data.data.ibge;
-                _this7.adrcmp_siafi = response.data.data.siafi;
-                _this7.adrcmp_zipcode = data.zipcode;
-                _this7.adrcmp_public_place = response.data.data.public_place;
-                _this7.adrcmp_address = response.data.data.address;
-                _this7.adrcmp_district = response.data.data.district;
-                _this7.adrcmp_city = response.data.data.city;
-                _this7.adrcmp_state = response.data.data.state;
-                _this7.adrcmp_country = 'Brasil';
+                _this6.adrcmp_ibge = response.data.data.ibge;
+                _this6.adrcmp_siafi = response.data.data.siafi;
+                _this6.adrcmp_zipcode = data.zipcode;
+                _this6.adrcmp_public_place = response.data.data.public_place;
+                _this6.adrcmp_address = response.data.data.address;
+                _this6.adrcmp_district = response.data.data.district;
+                _this6.adrcmp_city = response.data.data.city;
+                _this6.adrcmp_state = response.data.data.state;
+                _this6.adrcmp_country = 'Brasil';
               }
             });
           }

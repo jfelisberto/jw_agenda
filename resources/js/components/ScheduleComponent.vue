@@ -261,9 +261,7 @@
             console.log('Component Start Create.')
         },
         mounted() {
-            this.$http.get('/api/contact').then((response)=>{
-                this.contacts = response.data.data;
-            });
+            this.getContacts()
         },
         methods: {
             newContact() {
@@ -366,7 +364,6 @@
             editContact(id) {
                 this.$http.get('/api/contact/'+id+'/edit').then((response)=>{
                     sa(response.data.status, '', response.data.message, 1500)
-                    console.log(response.data)
                     if (response.data.status === 'success') {
                         this.id = response.data.data.id
                         this.name = response.data.data.name
@@ -437,15 +434,19 @@
                             this.adrcmp_state = ''
                             this.adrcmp_country = 'Brasil'
                         }
+                        $('#saveData').addClass('hidden')
+                        $('#editData').removeClass('hidden')
+                        $('#formTab .nav-link').removeClass('active')
+                        $('#formTab #contact-tab').addClass('active')
+                        $('#fomrTabContent .tab-pane').removeClass('show').removeClass('active')
+                        $("#fomrTabContent #contact").addClass('show').addClass('active')
                     }
                 })
-
-                $('#saveData').addClass('hidden')
-                $('#editData').removeClass('hidden')
-                $('#formTab .nav-link').removeClass('active')
-                $('#formTab #contact-tab').addClass('active')
-                $('#fomrTabContent .tab-pane').removeClass('show').removeClass('active')
-                $("#fomrTabContent #contact").addClass('show').addClass('active')
+            },
+            getContacts() {
+                this.$http.get('/api/contact').then((response)=>{
+                    this.contacts = response.data.data;
+                });
             },
             updContact() {
                 var data = {
@@ -503,16 +504,6 @@
                     }
                 })
             },
-            deleteData(id) {
-                this.$http.delete('/api/contact/'+id).then((response)=>{
-                    sa(response.data.status, '', response.data.message, 1500)
-                    if (response.data.status === 'success') {
-                        this.$http.get('/api/contact').then((response)=>{
-                            this.contacts = response.data.data;
-                        });
-                    }
-                })
-            },
             deleteContact(id, name) {
                 const swalBootstrapButtons = Swal.mixin({
                     customClass: {
@@ -534,9 +525,11 @@
                     if (result.value) {
                         http.delete('/api/contact/'+id).then((response)=>{
                             sa(response.data.status, '', response.data.message, 1500)
-                            setTimeout(function() {
+                            setTimeout(()=> {
                                 document.location.reload(true);
+                                //this.getContacts
                             }, 500)
+                            //this.getContacts()
                         })
                     } else if (result.dismiss === Swal.DismissReason.cancel) {
                         return false;

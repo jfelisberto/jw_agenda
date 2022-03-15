@@ -8,6 +8,7 @@ use Response;
 use App\Models\Contact as Societe;
 use App\Models\Address;
 use App\Components\FlashMessages;
+use App\Http\Resources\Contact as ContactResources;
 
 class Contact extends Controller
 {
@@ -174,6 +175,8 @@ class Contact extends Controller
     public function edit($id)
     {
         try {
+            return new ContactResources(Societe::find($id));
+            /*
             $data = Societe::find($id);
 
             if ($data) {
@@ -193,6 +196,7 @@ class Contact extends Controller
             ];
 
             return Response::json($result, 200);
+            */
         } catch (\Exception $e) {
             return Response::json(['message' => 'Houve um erro ao processar seus dados', 'status' => 'error', 'e_error' => $e->getMessage()], 500);
         }
